@@ -360,14 +360,14 @@ Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressiv
 
 .duration-bar-short {
   position: relative;
-  width: 60%; /* 比原來短 */
+  width: 60%; 
   height: 25px;
   background: linear-gradient(to right, 
-    #ff4444 0%, 
-    #ff8800 25%, 
+    #4444ff 0%,    /* 藍色 - Short */
+    #0088ff 25%, 
     #44ff44 50%, 
-    #0088ff 75%, 
-    #4444ff 100%);
+    #ff8800 75%, 
+    #ff4444 100%); /* 紅色 - Long */
   border-radius: 15px;
   display: flex;
   align-items: center;
