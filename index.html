@@ -247,26 +247,29 @@ Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressiv
   <div class="columns is-centered">
     <div class="column is-three-quarters">
       <h2 class="title is-3 has-text-centered">Visual Comparison</h2>
+        <h3 class="title is-5 has-text-centered" style="margin-bottom: 2rem; color: #666;">HyperNeRF Dataset</h3>
+
       <div class="columns">
         <!-- Video 1 -->
         <div class="column is-half">
           <div class="video-container">
-            <video controls width="100%" height="auto">
+          <video controls width="100%" height="auto" preload="metadata" autoplay muted loop>
               <source src="static/videos/banana_test_gt.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-            <div class="video-label">Scaffold-GS (24.5dB/248.0MB)</div>
+
+            <div class="video-label">Banana scene(28.3dB/ 5.1MB)</div>
           </div>
         </div>
         
         <!-- Video 2 -->
         <div class="column is-half">
           <div class="video-container">
-            <video controls width="100%" height="auto">
+            <video controls width="100%" height="auto" preload="metadata" autoplay muted loop>
               <source src="static/videos/chicken_test_gt.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-            <div class="video-label">Ours (25.0dB/21.4MB)</div>
+            <div class="video-label">Chicken scene (29.3dB/ 2.09MB)</div>
           </div>
         </div>
       </div>
