@@ -312,11 +312,17 @@ Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressiv
       
       <!-- Temporal Duration Video -->
       <h3 class="title is-5 has-text-centered" style="margin-top: 3rem; margin-bottom: 2rem; color: #666;">Temporal Duration Video on HyperNeRF Banana Scene</h3>
+      <div class="duration-indicator">
+        <div class="duration-bar">
+          <span class="duration-label-left">Short</span>
+          <span class="duration-label-right">Long</span>
+        </div>
+      </div>
       <div class="columns is-centered">
         <div class="column is-half">
           <div class="video-container">
             <video controls width="100%" height="auto" preload="metadata" autoplay muted loop>
-              <source src="static/videos/banana_dur_map.mp4" type="video/mp4">
+              <source src="static/videos/banana_duration_map.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
             <!-- 沒有任何標籤，如你要求的 -->
@@ -330,6 +336,32 @@ Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressiv
 
 
 <style>
+
+  .duration-indicator {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.duration-bar {
+  position: relative;
+  height: 30px;
+  background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #0000ff);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.duration-label-left,
+.duration-label-right {
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
 .video-container {
   position: relative;
   margin-bottom: 1rem;
