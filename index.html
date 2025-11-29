@@ -257,7 +257,8 @@ Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressiv
               <source src="static/videos/banana_test_gt.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-
+            <div class="video-label-top-left">Ours</div>
+            <div class="video-label-top-right">Ground Truth</div>
             <div class="video-label">Banana scene(28.3dB/ 5.1MB)</div>
           </div>
         </div>
@@ -269,6 +270,8 @@ Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressiv
               <source src="static/videos/chicken_test_gt.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
+            <div class="video-label-top-left">Ours</div>
+            <div class="video-label-top-right">Ground Truth</div>
             <div class="video-label">Chicken scene (29.3dB/ 2.09MB)</div>
           </div>
         </div>
@@ -279,8 +282,7 @@ Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressiv
 
 
 <style>
-
-  .video-container {
+.video-container {
   position: relative;
   margin-bottom: 1rem;
   border-radius: 8px;
@@ -303,6 +305,31 @@ Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressiv
   border-radius: 4px;
   font-size: 0.9rem;
   font-weight: 500;
+}
+
+/* 新增的標籤樣式 */
+.video-label-top-left {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.video-label-top-right {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 128, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .before-after-slider {
