@@ -312,12 +312,6 @@ Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressiv
       
       <!-- Temporal Duration Video -->
       <h3 class="title is-5 has-text-centered" style="margin-top: 3rem; margin-bottom: 2rem; color: #666;">Temporal Duration Video on HyperNeRF Banana Scene</h3>
-      <div class="duration-indicator">
-        <div class="duration-bar">
-          <span class="duration-label-left">Short</span>
-          <span class="duration-label-right">Long</span>
-        </div>
-      </div>
       <div class="columns is-centered">
         <div class="column is-half">
           <div class="video-container">
@@ -327,6 +321,17 @@ Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressiv
             </video>
             <!-- 沒有任何標籤，如你要求的 -->
           </div>
+          <!-- Time Duration Bar -->
+          <div class="duration-section">
+            <h4 class="duration-title">Time Duration</h4>
+            <div class="duration-bar-container">
+              <div class="duration-bar-short">
+                <span class="duration-label-left">Short</span>
+                <span class="duration-label-right">Long</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -336,32 +341,51 @@ Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressiv
 
 
 <style>
-
-  .duration-indicator {
-  margin-top: 10px;
-  width: 100%;
+.duration-section {
+  margin-top: 15px;
+  text-align: center;
 }
 
-.duration-bar {
+.duration-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.duration-bar-container {
+  display: flex;
+  justify-content: center;
+}
+
+.duration-bar-short {
   position: relative;
-  height: 30px;
-  background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #0000ff);
+  width: 60%; /* 比原來短 */
+  height: 25px;
+  background: linear-gradient(to right, 
+    #ff4444 0%, 
+    #ff8800 25%, 
+    #44ff44 50%, 
+    #0088ff 75%, 
+    #4444ff 100%);
   border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 15px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .duration-label-left,
 .duration-label-right {
   color: white;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.3);
+  padding: 2px 6px;
+  border-radius: 8px;
 }
-
 .video-container {
   position: relative;
   margin-bottom: 1rem;
@@ -560,7 +584,20 @@ Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressiv
     </div>
 </section> -->
 <!--End BibTex citation -->
-
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4 has-text-centered">Acknowledgement</h2>
+          <div class="content has-text-justified">
+            <p>
+              This work is supported by MediaTek Advanced Research Center and National Science and Technology Council (NSTC), Taiwan, under Grants 113-2634-F-A49-007-, 112-2221-E-A49-092-MY3, and 114-2221-E-A49-035-MY3. We thank National Center for High-performance Computing (NCHC) for providing computational and storage resources.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer class="footer">
   <div class="container">
