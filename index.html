@@ -140,10 +140,9 @@
         <img src="static/images/teaser.png" alt="MY ALT TEXT"/>
       <!-- </video> -->
       <h2 class="subtitle has-text-centered">
-        ==================================================================================
-        ==================================================================================
-        ==================================================================================
-        ==================================================================================
+        Our TED-4DGS reconstructs the scene with superior rendering quality compared to ADC-GS. It achieves a 26% file size reduction while closely matching the ground-truth view.
+        Right: Temporal duration map. Static background regions reuse long-duration Gaussian primitives, whereas occluded parts of the hand and
+      banana are represented by short-duration primitives, demonstrating the effectiveness of ours temporal activation method.
       </h2>
     </div>
   </div>
@@ -276,6 +275,37 @@ Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressiv
           </div>
         </div>
       </div>
+
+      <!-- Neu3D Dataset -->
+      <h3 class="title is-5 has-text-centered" style="margin-top: 3rem; margin-bottom: 2rem; color: #666;">Neu3D Dataset</h3>
+      <div class="columns">
+        <!-- Video 3 -->
+        <div class="column is-half">
+          <div class="video-container">
+            <video controls width="100%" height="auto" preload="metadata" autoplay muted loop>
+              <source src="static/videos/crb_test_gt.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-label-top-left">Ground Truth</div>
+            <div class="video-label-bottom-left">Ours</div>
+            <div class="video-label">Scene 1 (XX.XdB/ X.XMB)</div>
+          </div>
+        </div>
+        
+        <!-- Video 4 -->
+        <div class="column is-half">
+          <div class="video-container">
+            <video controls width="100%" height="auto" preload="metadata" autoplay muted loop>
+              <source src="static/videos/fs_test_gt.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-label-top-left">Ground Truth</div>
+            <div class="video-label-bottom-left">Ours</div>
+            <div class="video-label">Scene 2 (XX.XdB/ X.XMB)</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -324,6 +354,30 @@ Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressiv
   position: absolute;
   top: 10px;
   right: 10px;
+  background-color: rgba(0, 128, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.video-label-bottom-left {
+  position: absolute;
+  bottom: 50px; /* 在原本的 video-label 上方一點 */
+  left: 10px;
+  background-color: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.video-label-top-left {
+  position: absolute;
+  top: 10px;
+  left: 10px;
   background-color: rgba(0, 128, 0, 0.8);
   color: white;
   padding: 4px 8px;
