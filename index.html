@@ -166,17 +166,18 @@
             framework from learned image compression. But, they fail to utilize fully the inter and intra correlation inherent in Gaussian primitives. </p>
           <p> -->
             <p> 
-              3D Gaussian Splatting (3DGS) has recently emerged as a promising 3D representation.
-              However, its substantial storage requirements necessitate efficient compression for transmission and application.
-              This work introduces a novel rate-distortion-optimized compression framework for 3DGS, termed CAT-3DGS.
-              We apply masking and coding techniques within ScaffoldGS to ensure efficient data transmission.
-              For coding, we utilize the triplane hyperprior and employ channel-wise autoregressive models to predict probabilities for entropy 
-              coding. Moreover, an improved masking mechanism further enhances efficieny.
+              Building on the success of 3D Gaussian Splatting (3DGS), representing dynamic scenes (4DGS) has become a key research focus. 
+              However, achieving efficient deformation modeling while simultaneously optimizing for compression (Rate-Distortion Optimization) remains a significant challenge. 
+              Prior methods often struggle with either overspecified, short-lived primitives or irregular deformations that lack explicit temporal control.
           </p>
           <p>
-            Combined with these features, CAT-3DGS achieves state-of-the-art compression performance on real-world datasets. 
-            On the Mip-NeRF 360 dataset, our CAT-3DGS achieves (at its second highest rate point) <font color="#FF0000"><b>78× </b></font>
-            and <font color="#FF0000"><b>26x</b></font> rate reductions than 3DGS and ScaffoldGS, respectively, while achieving slightly higher PSNR by 0.16 dB.</p>
+            To address this, we present TED-4DGS, a novel framework that unifies Temporally Activated mechanisms with Embedding-based Deformation for high-efficiency 4DGS compression. 
+            Our approach introduces learnable temporal activation parameters for each anchor to explicitly model appearance and disappearance, 
+            effectively handling occlusion and disocclusion. Furthermore, we incorporate an INR-based hyperprior and a channel-wise autoregressive model to achieve compact attribute compression. 
+            Experimental results demonstrate that TED-4DGS achieves state-of-the-art rate-distortion performance on real-world datasets, 
+            significantly reducing file sizes while maintaining superior rendering quality compared to existing methods.
+  
+          </p>
           </p>
         </div>
       </div>
@@ -196,10 +197,10 @@
           <p>
             <!-- Overview of our CAT-3DGS framework. -->
             
-Our work, CAT-3DGS, introduces a rate-distortion-optimized approach that leverages context-adaptive triplanes to improve compression efficiency. 
-By aligning multi-scale triplanes with the principal axes of Gaussian primitives, we capture spatial correlations for spatial autoregressive coding (e),
- while channel-wise autoregressive coding (d) exploits intra dependencies within each individual Gaussian primitive. A view frequency-aware masking mechanism
-  further refines the process by skipping primitives with minimal impact on rendering quality. 
+Our work, TED-4DGS, introduces a rate-distortion-optimized compression framework for dynamic 3DGS. 
+We design a per-anchor embedding-based deformation network (a) that leverages temporal features to query a shared global deformation bank to effectively capture anchor-specific deformation. 
+To promote stable deformation and improved visibility modeling, we extend static 3D anchors into 4D by introducing temporal activation parameters. 
+Finally, we incorporate an INR-based hyperprior and a channel-wise autoregressive model (b) for efficient attribute coding.
           </p>
           
         </div>
@@ -207,17 +208,19 @@ By aligning multi-scale triplanes with the principal axes of Gaussian primitives
     </div>
     <img src="static/images/pipeline.jpg" alt="Overview of CAT-3DGS framework"/>
     <h2 class="subtitle has-text-centered">
-      Overview of our TED-4DGS framework.
+      Overall pipeline of our TED-4DGS framework.
     </h2>
     
-    <img src="static/images/compression.jpg" alt="Overview of TED-4 DGS framework"/>
-    <h2 class="subtitle has-text-centered">
-      Overview of our TED-4DGS framework.
-    </h2>
+
     
     <img src="static/images/deformation.jpg" alt="Overview of TED-4 DGS framework"/>
     <h2 class="subtitle has-text-centered">
-      Overview of our TED-4DGS framework.
+      (a) Anchor-based deformation framework and Scaffold-GS rendering.
+    </h2>
+
+        <img src="static/images/compression.jpg" alt="Overview of TED-4 DGS framework"/>
+    <h2 class="subtitle has-text-centered">
+      (b) INR-based anchor attribute compression framework.
     </h2>
   </div>
 </section>
@@ -240,47 +243,65 @@ By aligning multi-scale triplanes with the principal axes of Gaussian primitives
   </div>
 </section>
 <!-- End paper abstract -->
-
 <section class="section hero is-light">
-  <!-- <div class="container is-max-desktop"> -->
-    <div class="columns is-centered">
-      <div class="column is-three-quarters">
-
-    <h2 class="title is-3 has-text-centered">Visual Comparison</h2>
-    <div class="columns is-multiline">
-      <!-- Slider 1 -->
-      <div class="column is-half">
-        <div class="before-after-slider" id="slider1">
-          <div class="slider-wrapper">  
-            <img src="static/images/scaffold.png" class="before-image" alt="Before 1">
-            <img src="static/images/ours_bicycle_0.004.png" class="after-image" alt="After 1">
-            <div class="slider-label slider-label-left">Scaffold-GS (24.5dB/248.0MB)</div>
-            <div class="slider-label slider-label-right">Ours (25.0dB/21.4MB)</div>
-            <div class="slider-handle"></div>
+  <div class="columns is-centered">
+    <div class="column is-three-quarters">
+      <h2 class="title is-3 has-text-centered">Visual Comparison</h2>
+      <div class="columns">
+        <!-- Video 1 -->
+        <div class="column is-half">
+          <div class="video-container">
+            <video controls width="100%" height="auto">
+              <source src="static/videos/banana_test_gt.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-label">Scaffold-GS (24.5dB/248.0MB)</div>
+          </div>
+        </div>
+        
+        <!-- Video 2 -->
+        <div class="column is-half">
+          <div class="video-container">
+            <video controls width="100%" height="auto">
+              <source src="static/videos/chicken_test_gt.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-label">Ours (25.0dB/21.4MB)</div>
           </div>
         </div>
       </div>
-      <!-- Slider 2 -->
-      <div class="column is-half">
-        <div class="before-after-slider" id="slider2">
-          <div class="slider-wrapper">
-            <img src="static/images/hac_ams.png" class="before-image" alt="Before 2">
-            <img src="static/images/ours_ams.png" class="after-image" alt="After 2">
-            <div class="slider-label slider-label-left">HAC (27.3dB/31.8MB)</div>
-            <div class="slider-label slider-label-right">Ours (27.6dB/32.0MB)</div>
-            <div class="slider-handle"></div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
-</div>
-  <!-- </div> -->
 </section>
 
 
 <style>
+
+  .video-container {
+  position: relative;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.video-container video {
+  display: block;
+  border-radius: 8px;
+}
+
+.video-label {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 .before-after-slider {
   position: relative;
   width: 100%;
